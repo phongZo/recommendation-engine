@@ -111,7 +111,7 @@ def recommend(productId):
     views = pd.json_normalize(data_file, max_level=1)
     views, products = filterData(views,products)
     X, customer_mapper, product_mapper, customer_inv_mapper, product_inv_mapper = create_matrix(views)
-    similar_ids = find_similar_products(product_mapper,product_inv_mapper,productId, X, k=len(views) - 1)
+    similar_ids = find_similar_products(product_mapper,product_inv_mapper,productId, X, k=8)
     data = ""
     for i in similar_ids:
         data = data + str(i) + ","
